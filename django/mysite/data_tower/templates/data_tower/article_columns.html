@@ -1,0 +1,26 @@
+<form action="{% url 'data_tower:addArticleColumn' %}" method="post">
+	{% csrf_token %}
+	<label for="c-text">百度百家号分类Id:</label>
+	<input id="c-text" type="input" name="articleColumnId" value=""/>
+	<br/>
+	<label for="c-text">百度百家号分类描述:</label>
+	<input id="c-id" type="input" name="articleColumnText" value=""/>
+	<br/>
+	<input type="submit" value="Add"/>
+</form>
+{% if articleColumns %}
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>原始Id</th>
+			<th>名称</th>
+		</tr>
+	{% for column in articleColumns %}
+		<tr>
+			<td>{{ column.id }}</td>
+			<td>{{ column.column_id }}</td>
+			<td>{{ column.column_text }}</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endif %}

@@ -28,10 +28,3 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
-
-class Article(models.Model):
-    article_id = models.IntegerField()
-    article_title = models.CharField(max_length=500)
-
-class ArticleColumn(models.Model):
-    column_text = models.CharField(max_length=100)
